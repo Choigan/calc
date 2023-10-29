@@ -1,0 +1,19 @@
+.screen {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+}
+
+.screenExpression {
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 140px;
+}
+
+.screenValue {
+    font-size: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
