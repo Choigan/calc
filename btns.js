@@ -62,7 +62,8 @@ btnList.btn6.onclick = () => {
 
 // Кнопка C
 btnList.btn0.onclick = () => {
-    screenBasicValue.textContent = 0;
+    if (screenBasicValue.textContent != 0) { screenBasicValue.textContent = 0; }
+    else historyContainer.innerHTML = '';
 }
 
 // Кнопка ÷
@@ -99,13 +100,21 @@ btnList.btn15.onclick = () => {
 
 // Кнопка =
 btnList.btn18.onclick = () => {
+    const historyItem = document.createElement('p');
+    historyItem.className = 'currExp';
+    historyContainer.append(historyItem);
     if (screenBasicValue.textContent.includes('×')) {
         replacementMultiplication = screenBasicValue.textContent.replace(/×/g, '*');
+        historyItem.textContent = `${screenBasicValue.textContent} = ${eval(replacementMultiplication)}`;
         screenBasicValue.textContent = eval(replacementMultiplication);
     } else if (screenBasicValue.textContent.includes('÷')) {
         replacementDivision = screenBasicValue.textContent.replace(/÷/g, '/');
+        historyItem.textContent = `${screenBasicValue.textContent} = ${eval(replacementDivision)}`;
         screenBasicValue.textContent = eval(replacementDivision);
-    } else screenBasicValue.textContent = eval(screenBasicValue.textContent);
+    } else {
+        historyItem.textContent = `${screenBasicValue.textContent} = ${eval(screenBasicValue.textContent)}`;
+        screenBasicValue.textContent = eval(screenBasicValue.textContent)
+    };
 }
 
 // Кнопка +/-
@@ -123,5 +132,41 @@ btnList.btn17.onclick = () => {
 
 // Кнопка %
 btnList.btn2.onclick = () => {
-    screenBasicValue.textContent = eval(screenBasicValue.textContent);
+    if (screenBasicValue.textContent.includes(' - ')) {
+        procentSplit = screenBasicValue.textContent.split('-');
+        minuend = procentSplit[0].trim();
+        const replaceProcentMinus = screenBasicValue.textContent.replace(/\s+\-\s+/g, ' * ');
+        const procentMinus = eval(replaceProcentMinus) / 100;
+        screenBasicValue.textContent = minuend + ' - ' + procentMinus;
+    }
+    else if (screenBasicValue.textContent.includes(' + ')) {
+        procentSplit = screenBasicValue.textContent.split('+');
+        summand = procentSplit[0].trim();
+        const replaceProcentPlus = screenBasicValue.textContent.replace(/\s+\+\s+/g, ' * ');
+        const procentPlus = eval(replaceProcentPlus) / 100;
+        screenBasicValue.textContent = summand + ' + ' + procentPlus;
+    }
+    else if (screenBasicValue.textContent.includes(' × ')) {
+        procentSplit = screenBasicValue.textContent.split('×');
+        multiplicanda = procentSplit[0].trim();
+        multiplier = eval(procentSplit[1].trim() / 100)
+        screenBasicValue.textContent = multiplicanda + ' × ' + multiplier;
+    }
+    else if (screenBasicValue.textContent.includes(' ÷ ')) {
+        procentSplit = screenBasicValue.textContent.split('÷');
+        dividend = procentSplit[0].trim();
+        divisor = eval(procentSplit[1].trim() / 100)
+        screenBasicValue.textContent = dividend + ' ÷ ' + divisor;
+    }
 }
+
+
+// btnList.btn2.onclick = () => {
+//     if (screenBasicValue.textContent.includes(' - ')) {
+//         procentSplit = screenBasicValue.textContent.split('-');
+//         minuend = procentSplit[0].trim();
+//         const replaceProcentMinus = screenBasicValue.textContent.replace(/ - /g, ' * ');
+//         const procentMinus = eval(replaceProcentMinus) / 100;
+//         screenBasicValue.textContent = eval(minuend - procentMinus)
+//     }
+// }

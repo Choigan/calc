@@ -1,8 +1,7 @@
 const btnsBox = document.getElementById('btnsBox');
 const screenBox = document.getElementById('screenBox')
-const currentExpression = document.getElementById('currentExpression');
+const historyContainer = document.getElementById('historyContainer');
 const screenBasicValue = document.getElementById('screenBasicValue');
-
 
 const btnList = {};
 const btnValue = ['C', '+/-', '%', '÷', '7', '8', '9', '×', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];

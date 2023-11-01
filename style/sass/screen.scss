@@ -4,9 +4,10 @@
     padding: 0 15px;
 }
 
-.screenExpression {
+.history {
     font-size: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
     height: 140px;
