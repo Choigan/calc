@@ -23,6 +23,4 @@ function renderBtn(count) {
 
 renderBtn(19);
 
-btnList.btn16.onclick = () => {
-    alert('ok')
-}
+const keys = Object.keys(btnList);
