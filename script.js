@@ -2,6 +2,7 @@ const btnsBox = document.getElementById('btnsBox');
 const screenBox = document.getElementById('screenBox')
 const historyContainer = document.getElementById('historyContainer');
 const screenBasicValue = document.getElementById('screenBasicValue');
+const historyItemBox = document.getElementById('historyItemBox')
 
 const btnList = {};
 const btnValue = ['C', '+/-', '%', '÷', '7', '8', '9', '×', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
@@ -22,4 +23,4 @@ function renderBtn(count) {
 
 renderBtn(19);
 
-const keys = Object.keys(btnList);
+// const keys = Object.keys(btnList);

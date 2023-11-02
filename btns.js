@@ -62,8 +62,8 @@ btnList.btn6.onclick = () => {
 
 // Кнопка C
 btnList.btn0.onclick = () => {
-    if (screenBasicValue.textContent != 0) { screenBasicValue.textContent = 0; }
-    else historyContainer.innerHTML = '';
+    if (screenBasicValue.textContent != '0') { screenBasicValue.textContent = '0'; }
+    else historyItemBox.innerHTML = '';
 }
 
 // Кнопка ÷
@@ -102,7 +102,7 @@ btnList.btn15.onclick = () => {
 btnList.btn18.onclick = () => {
     const historyItem = document.createElement('p');
     historyItem.className = 'currExp';
-    historyContainer.append(historyItem);
+    historyItemBox.append(historyItem);
     if (screenBasicValue.textContent.includes('×')) {
         replacementMultiplication = screenBasicValue.textContent.replace(/×/g, '*');
         historyItem.textContent = `${screenBasicValue.textContent} = ${eval(replacementMultiplication)}`;
