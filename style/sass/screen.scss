@@ -8,7 +8,8 @@
 .history {
     font-size: 30px;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
     height: 140px;
     overflow-y: auto;
 }
@@ -16,11 +17,14 @@
 .historyElements {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
 }
 
 .screenValue {
     font-size: 50px;
     display: flex;
     justify-content: flex-end;
+}
+
+.aggregate {
+    flex: 1;
 }
