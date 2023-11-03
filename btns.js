@@ -59,11 +59,11 @@ btnList.btn6.onclick = () => {
 }
 
 function firstElement(firstElem) {
-    return firstElem[(firstElem.length) - (firstElem.length)] == '=';
+    return firstElem[(firstElem.length) - (firstElem.length)] === '=';
 }
 
 function lastElement(lastElem) {
-    return lastElem[lastElem.length - 1] != ' ';
+    return lastElem[lastElem.length - 1] == '';
 }
 
 // ----------------------------------------------------------------------------------------------------------------
