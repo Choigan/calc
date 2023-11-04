@@ -1,69 +1,87 @@
+// Если значение screenBasicValue.textContent равно 0 или знаку равенства, то мы его заменяем на значение кнопки, иначе добавляем в строку значение кнопки
 // Кнопка 9
 btnList.btn16.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn16.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn16.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn16.textContent; }
     else screenBasicValue.textContent += btnList.btn16.textContent;
 }
 
 // Кнопка 1
 btnList.btn12.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn12.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn12.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn12.textContent; }
     else screenBasicValue.textContent += btnList.btn12.textContent;
 }
 
 // Кнопка 2
 btnList.btn13.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn13.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn13.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn13.textContent; }
     else screenBasicValue.textContent += btnList.btn13.textContent;
 }
 
 // Кнопка 3
 btnList.btn14.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn14.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn14.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn14.textContent; }
     else screenBasicValue.textContent += btnList.btn14.textContent;
 }
 
 // Кнопка 4
 btnList.btn8.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn8.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn8.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn8.textContent; }
     else screenBasicValue.textContent += btnList.btn8.textContent;
 }
 
 // Кнопка 5
 btnList.btn9.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn9.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn9.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn9.textContent; }
     else screenBasicValue.textContent += btnList.btn9.textContent;
 }
 
 // Кнопка 6
 btnList.btn10.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn10.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn10.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn10.textContent; }
     else screenBasicValue.textContent += btnList.btn10.textContent;
 }
 
 // Кнопка 7
 btnList.btn4.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn4.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn4.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn4.textContent; }
     else screenBasicValue.textContent += btnList.btn4.textContent;
 }
 
 // Кнопка 8
 btnList.btn5.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn5.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn5.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn5.textContent; }
     else screenBasicValue.textContent += btnList.btn5.textContent;
 }
 
 // Кнопка 9
 btnList.btn6.onclick = () => {
-    if (screenBasicValue.textContent == 0 || (firstElement(screenBasicValue.textContent) && lastElement(screenBasicValue.textContent))) { screenBasicValue.textContent = btnList.btn6.textContent; }
+    if (firstElement(screenBasicValue.textContent) && mathSign(screenBasicValue.textContent)) { screenBasicValue.textContent += btnList.btn6.textContent; }
+    else if (screenBasicValue.textContent == 0 || firstElement(screenBasicValue.textContent)) { screenBasicValue.textContent = btnList.btn6.textContent; }
     else screenBasicValue.textContent += btnList.btn6.textContent;
 }
 
+// Функция которая проверяет начинается ли строка с символа равно
 function firstElement(firstElem) {
     return firstElem[(firstElem.length) - (firstElem.length)] === '=';
 }
 
-function lastElement(lastElem) {
-    return lastElem[lastElem.length - 1] == '';
+// Функция которая проверяет присутствуют ли мат. символы
+function mathSign(mathSign) {
+    if (mathSign.includes(' × ') || (mathSign.includes('÷ ')) || (mathSign.includes(' + '))
+        || (mathSign.includes(' - '))) {
+        return true
+    }
+    else return false
+
 }
 
 // ----------------------------------------------------------------------------------------------------------------
