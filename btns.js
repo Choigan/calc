@@ -136,34 +136,51 @@ btnList.btn18.onclick = () => {
     const historyItem = document.createElement('p'); // Создаем параграф
     historyItem.className = 'currExp'; // Даем созданному параграфу класс
     historyItemBox.append(historyItem); // Добавляем созданный параграф в блок historyItemBox
-    if (firstElement(screenBasicValue.textContent)) {
-        if (screenBasicValue.textContent.includes('×')) {
-            screenBasicValue.textContent = screenBasicValue.textContent.substring(1);
-            replacementMultiplication = screenBasicValue.textContent.replace(/×/g, '*');
-            historyItem.textContent = `${screenBasicValue.textContent} = ${eval(replacementMultiplication)}`;
-            screenBasicValue.textContent = '= ' + eval(replacementMultiplication);
-        } else if (screenBasicValue.textContent.includes('÷')) {
-            screenBasicValue.textContent = screenBasicValue.textContent.substring(1);
-            replacementDivision = screenBasicValue.textContent.replace(/÷/g, '/');
-            historyItem.textContent = `${screenBasicValue.textContent} = ${eval(replacementDivision)}`;
-            screenBasicValue.textContent = '= ' + eval(replacementDivision);
+    if (firstElement(screenBasicValue.textContent)) { //Проверяем начинается ли строка с символа "равно"
+        if (screenBasicValue.textContent.includes('×') || screenBasicValue.textContent.includes('÷')) {
+            screenBasicValue.textContent = screenBasicValue.textContent.substring(1); // Удаляем знак "равно"
+            if (screenBasicValue.textContent[screenBasicValue.textContent.length - 1] === ' ') { // Если встречаем в конце пробел(встречается если введен мат. знак)
+                replacementValue = screenBasicValue.textContent.replace(/×/g, '*').replace(/÷/g, '/'); // Заменяем символы на * и /
+                replacementValue = replacementValue.slice(0, -3) // удаляем мат. знак
+                historyItem.textContent = `${screenBasicValue.textContent.slice(0, -3)} = ${eval(replacementValue)}`;
+                screenBasicValue.textContent = '= ' + eval(replacementValue);
+            } else {
+                replacementValue = screenBasicValue.textContent.replace(/×/g, '*').replace(/÷/g, '/');
+                historyItem.textContent = `${screenBasicValue.textContent} = ${eval(replacementValue)}`;
+                screenBasicValue.textContent = '= ' + eval(replacementValue);
+            }
         } else {
             screenBasicValue.textContent = screenBasicValue.textContent.substring(1);
-            historyItem.textContent = `${screenBasicValue.textContent} = ${eval(screenBasicValue.textContent)}`;
-            screenBasicValue.textContent = '= ' + eval(screenBasicValue.textContent)
+            if (screenBasicValue.textContent[screenBasicValue.textContent.length - 1] === ' ') {
+                screenBasicValue.textContent = screenBasicValue.textContent.slice(0, -3)
+                historyItem.textContent = `${screenBasicValue.textContent} = ${eval(screenBasicValue.textContent)}`;
+                screenBasicValue.textContent = '= ' + eval(screenBasicValue.textContent)
+            } else {
+                historyItem.textContent = `${screenBasicValue.textContent} = ${eval(screenBasicValue.textContent)}`;
+                screenBasicValue.textContent = '= ' + eval(screenBasicValue.textContent)
+            }
         };
     } else {
-        if (screenBasicValue.textContent.includes('×')) {
-            replacementMultiplication = screenBasicValue.textContent.replace(/×/g, '*');
-            historyItem.textContent = `${screenBasicValue.textContent} = ${eval(replacementMultiplication)}`;
-            screenBasicValue.textContent = '= ' + eval(replacementMultiplication);
-        } else if (screenBasicValue.textContent.includes('÷')) {
-            replacementDivision = screenBasicValue.textContent.replace(/÷/g, '/');
-            historyItem.textContent = `${screenBasicValue.textContent} = ${eval(replacementDivision)}`;
-            screenBasicValue.textContent = '= ' + eval(replacementDivision);
+        if (screenBasicValue.textContent.includes('×') || screenBasicValue.textContent.includes('÷')) {
+            if (screenBasicValue.textContent[screenBasicValue.textContent.length - 1] === ' ') {
+                replacementValue = screenBasicValue.textContent.replace(/×/g, '*').replace(/÷/g, '/');
+                replacementValue = replacementValue.slice(0, -3)
+                historyItem.textContent = `${screenBasicValue.textContent.slice(0, -3)} = ${eval(replacementValue)}`;
+                screenBasicValue.textContent = '= ' + eval(replacementValue);
+            } else {
+                replacementValue = screenBasicValue.textContent.replace(/×/g, '*').replace(/÷/g, '/');
+                historyItem.textContent = `${screenBasicValue.textContent} = ${eval(replacementValue)}`;
+                screenBasicValue.textContent = '= ' + eval(replacementValue);
+            }
         } else {
-            historyItem.textContent = `${screenBasicValue.textContent} = ${eval(screenBasicValue.textContent)}`;
-            screenBasicValue.textContent = '= ' + eval(screenBasicValue.textContent)
+            if (screenBasicValue.textContent[screenBasicValue.textContent.length - 1] === ' ') {
+                screenBasicValue.textContent = screenBasicValue.textContent.slice(0, -3)
+                historyItem.textContent = `${screenBasicValue.textContent} = ${eval(screenBasicValue.textContent)}`;
+                screenBasicValue.textContent = '= ' + eval(screenBasicValue.textContent)
+            } else {
+                historyItem.textContent = `${screenBasicValue.textContent} = ${eval(screenBasicValue.textContent)}`;
+                screenBasicValue.textContent = '= ' + eval(screenBasicValue.textContent)
+            }
         };
     }
 }
@@ -172,11 +189,24 @@ btnList.btn18.onclick = () => {
 // Проверяем есть ли знак равенства в начале выражения, если да, то удаляем его
 // Выражение умножаем на "-1"
 btnList.btn1.onclick = () => {
+    let screenBasicValueSplit = screenBasicValue.textContent.split(' ');
     if (firstElement(screenBasicValue.textContent)) {
         screenBasicValue.textContent = screenBasicValue.textContent.substring(1);
-        screenBasicValue.textContent = `= ${eval(screenBasicValue.textContent * -1)}`;
+        if (screenBasicValue.textContent[screenBasicValue.textContent.length - 1] === ' ') {
+            screenBasicValue.textContent += `(-${screenBasicValueSplit[screenBasicValueSplit.length - 3]})`
+        } else {
+            screenBasicValueSplit[screenBasicValueSplit.length - 1] = `(${eval(screenBasicValueSplit[screenBasicValueSplit.length - 1] * (-1))})`
+            screenBasicValue.textContent = screenBasicValueSplit.join(' ')
+        }
     }
-    else screenBasicValue.textContent = eval(screenBasicValue.textContent * -1);
+    else {
+        if (screenBasicValue.textContent[screenBasicValue.textContent.length - 1] === ' ') {
+            screenBasicValue.textContent += `(-${screenBasicValueSplit[screenBasicValueSplit.length - 3]})`
+        } else {
+            screenBasicValueSplit[screenBasicValueSplit.length - 1] = `(${eval(screenBasicValueSplit[screenBasicValueSplit.length - 1] * (-1))})`
+            screenBasicValue.textContent = screenBasicValueSplit.join(' ')
+        }
+    };
 }
 
 // Кнопка .
@@ -186,7 +216,15 @@ btnList.btn17.onclick = () => {
         screenBasicValue.textContent += 0 + btnList.btn17.textContent;
     }
     else {
-        screenBasicValue.textContent += btnList.btn17.textContent;
+        const inputString = screenBasicValue.textContent;
+        const validInput = /\d+(\.\d+)?(\s*[\+\-\*\/]\s*\d+(\.\d+)?)*/.test(inputString);
+
+        if (validInput) {
+            const lastPart = inputString.split(' ').pop();
+            if (!lastPart.includes('.')) {
+                screenBasicValue.textContent += btnList.btn17.textContent;
+            }
+        }
     }
 
 }
@@ -251,14 +289,3 @@ btnList.btn2.onclick = () => {
         }
     }
 }
-
-
-// btnList.btn2.onclick = () => {
-//     if (screenBasicValue.textContent.includes(' - ')) {
-//         procentSplit = screenBasicValue.textContent.split('-');
-//         minuend = procentSplit[0].trim();
-//         const replaceProcentMinus = screenBasicValue.textContent.replace(/ - /g, ' * ');
-//         const procentMinus = eval(replaceProcentMinus) / 100;
-//         screenBasicValue.textContent = eval(minuend - procentMinus)
-//     }
-// }
